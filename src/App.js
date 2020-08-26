@@ -34,6 +34,7 @@ const App = () => {
 
     const imgURL = URL.createObjectURL(img);
     console.log(img);
+    setclassifiedResultS(null);
     setimgPreviewS(imgURL);
   };
 
@@ -116,11 +117,15 @@ const App = () => {
           {classifiedResultS && (
             <div className="row" style={{ margin: "15px" }}>
               {classifiedResultS.map((singlePrediction, index) => (
-                <div className="panel panel-info" key={index} style={{ marginBottom: "15px" }}>
+                <div
+                  className="panel panel-info"
+                  key={index}
+                  style={{ marginBottom: "15px" }}
+                >
                   <div className="panel-heading">
                     Classified as {singlePrediction.className}
                   </div>
-                  <div className="panel-body" >
+                  <div className="panel-body">
                     Percentage:%
                     {(singlePrediction.probability * 100).toFixed(2)}
                   </div>
